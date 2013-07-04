@@ -1,0 +1,44 @@
+Priority(by year):
+	3rd & 4th
+	5th
+	2nd
+	
+Base score Out of 100:
+	Choose a weight for preference of each game, totaling to a sum of 100
+	**If the sum is greater than 100, each choice will be normalized so the sum is less than or equal to 100, rounding down decimals**
+	
+	
+	Modified score
+		Then multiply by 10 (for base), 13 (for 5ths), 14 (for 3rds and 4ths)
+		The constants for the various years may need to be changed to be reasonable
+		based on testing
+		
+Properties:
+	Everyone must have at least 1 away game.
+	(**maybe** 2nd years get a maximum of 1 or 2 games?)
+	No one recieves a game if their preference for that game is 0
+	
+	**Each game is three 1sts, three 2nds?**
+	
+	Methods of choosing
+		-Everyone gets n games before anyone gets n+1?
+		-Or everyone gets 1 before anyone gets more than 1?
+	
+	Ties:
+		1. Gig activity
+		2. Seniority
+		3. Random
+	
+// Ignore everything below this, this is implementation details.
+Algorithm:
+	Keep a set for each game of solution, and a set of used people
+
+	1. Sorted array of Choice objects (priority, name, year, used for fields) for each game
+	2. An array of the max value in each array
+	3. Choose max value
+	
+	
+File format:
+Games[0-indexed]: 	["Arizona", 	"Stanford", 	"Oregon", 
+					 "Cal", 		"Colorado", 	"OSU"]
+Name Seniority Gigs G0 G1 G2 G3 G4 G5
